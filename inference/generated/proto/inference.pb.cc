@@ -29,18 +29,18 @@ namespace inference {
 inline constexpr FrameRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        encoded_frame_(
+        frame_id_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         codec_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        frame_id_(
+        encoded_frame_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        timestamp_{::int64_t{0}},
         width_{0},
         height_{0},
+        timestamp_{::int64_t{0}},
         channels_{0} {}
 
 template <typename>
@@ -132,20 +132,20 @@ const ::uint32_t
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_._has_bits_),
         10, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.encoded_frame_),
-        PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.codec_),
-        PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.timestamp_),
-        PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.frame_id_),
         PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.width_),
         PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.height_),
         PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.channels_),
+        PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.timestamp_),
+        PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.frame_id_),
+        PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.codec_),
+        PROTOBUF_FIELD_OFFSET(::inference::FrameRequest, _impl_.encoded_frame_),
+        3,
+        4,
+        6,
+        5,
         0,
         1,
-        3,
         2,
-        4,
-        5,
-        6,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::inference::BoundingBox, _impl_._has_bits_),
         8, // hasbit index offset
@@ -186,10 +186,10 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
 const char descriptor_table_protodef_inference_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\017inference.proto\022\tinference\"\212\001\n\014FrameRe"
-    "quest\022\025\n\rencoded_frame\030\001 \001(\014\022\r\n\005codec\030\002 "
-    "\001(\t\022\021\n\ttimestamp\030\003 \001(\003\022\020\n\010frame_id\030\004 \001(\t"
-    "\022\r\n\005width\030\005 \001(\005\022\016\n\006height\030\006 \001(\005\022\020\n\010chann"
-    "els\030\007 \001(\005\"V\n\013BoundingBox\022\t\n\001x\030\001 \001(\005\022\t\n\001y"
+    "quest\022\r\n\005width\030\001 \001(\005\022\016\n\006height\030\002 \001(\005\022\020\n\010"
+    "channels\030\003 \001(\005\022\021\n\ttimestamp\030\004 \001(\003\022\020\n\010fra"
+    "me_id\030\005 \001(\t\022\r\n\005codec\030\006 \001(\t\022\025\n\rencoded_fr"
+    "ame\030\007 \001(\014\"V\n\013BoundingBox\022\t\n\001x\030\001 \001(\005\022\t\n\001y"
     "\030\002 \001(\005\022\r\n\005width\030\003 \001(\005\022\016\n\006height\030\004 \001(\005\022\022\n"
     "\nconfidence\030\005 \001(\002\"{\n\021DetectionResponse\022%"
     "\n\005faces\030\001 \003(\0132\026.inference.BoundingBox\022\021\n"
@@ -242,9 +242,9 @@ PROTOBUF_NDEBUG_INLINE FrameRequest::Impl_::Impl_(
     [[maybe_unused]] const ::inference::FrameRequest& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
-        encoded_frame_(arena, from.encoded_frame_),
+        frame_id_(arena, from.frame_id_),
         codec_(arena, from.codec_),
-        frame_id_(arena, from.frame_id_) {}
+        encoded_frame_(arena, from.encoded_frame_) {}
 
 FrameRequest::FrameRequest(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
@@ -260,11 +260,11 @@ FrameRequest::FrameRequest(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, timestamp_),
+               offsetof(Impl_, width_),
            reinterpret_cast<const char *>(&from._impl_) +
-               offsetof(Impl_, timestamp_),
+               offsetof(Impl_, width_),
            offsetof(Impl_, channels_) -
-               offsetof(Impl_, timestamp_) +
+               offsetof(Impl_, width_) +
                sizeof(Impl_::channels_));
 
   // @@protoc_insertion_point(copy_constructor:inference.FrameRequest)
@@ -273,17 +273,17 @@ PROTOBUF_NDEBUG_INLINE FrameRequest::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
-        encoded_frame_(arena),
+        frame_id_(arena),
         codec_(arena),
-        frame_id_(arena) {}
+        encoded_frame_(arena) {}
 
 inline void FrameRequest::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, timestamp_),
+               offsetof(Impl_, width_),
            0,
            offsetof(Impl_, channels_) -
-               offsetof(Impl_, timestamp_) +
+               offsetof(Impl_, width_) +
                sizeof(Impl_::channels_));
 }
 FrameRequest::~FrameRequest() {
@@ -297,9 +297,9 @@ inline void FrameRequest::SharedDtor(MessageLite& self) {
   }
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.encoded_frame_.Destroy();
-  this_._impl_.codec_.Destroy();
   this_._impl_.frame_id_.Destroy();
+  this_._impl_.codec_.Destroy();
+  this_._impl_.encoded_frame_.Destroy();
   this_._impl_.~Impl_();
 }
 
@@ -366,51 +366,51 @@ FrameRequest::_table_ = {
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // bytes encoded_frame = 1;
-    {::_pbi::TcParser::FastBS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.encoded_frame_)}},
-    // string codec = 2;
-    {::_pbi::TcParser::FastUS1,
-     {18, 1, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.codec_)}},
-    // int64 timestamp = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(FrameRequest, _impl_.timestamp_), 3>(),
-     {24, 3, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.timestamp_)}},
-    // string frame_id = 4;
-    {::_pbi::TcParser::FastUS1,
-     {34, 2, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.frame_id_)}},
-    // int32 width = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(FrameRequest, _impl_.width_), 4>(),
-     {40, 4, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.width_)}},
-    // int32 height = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(FrameRequest, _impl_.height_), 5>(),
-     {48, 5, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.height_)}},
-    // int32 channels = 7;
+    // int32 width = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(FrameRequest, _impl_.width_), 3>(),
+     {8, 3, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.width_)}},
+    // int32 height = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(FrameRequest, _impl_.height_), 4>(),
+     {16, 4, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.height_)}},
+    // int32 channels = 3;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(FrameRequest, _impl_.channels_), 6>(),
-     {56, 6, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.channels_)}},
+     {24, 6, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.channels_)}},
+    // int64 timestamp = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(FrameRequest, _impl_.timestamp_), 5>(),
+     {32, 5, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.timestamp_)}},
+    // string frame_id = 5;
+    {::_pbi::TcParser::FastUS1,
+     {42, 0, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.frame_id_)}},
+    // string codec = 6;
+    {::_pbi::TcParser::FastUS1,
+     {50, 1, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.codec_)}},
+    // bytes encoded_frame = 7;
+    {::_pbi::TcParser::FastBS1,
+     {58, 2, 0, PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.encoded_frame_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // bytes encoded_frame = 1;
-    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.encoded_frame_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
-    // string codec = 2;
-    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.codec_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // int64 timestamp = 3;
-    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.timestamp_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
-    // string frame_id = 4;
-    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.frame_id_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // int32 width = 5;
-    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.width_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
-    // int32 height = 6;
-    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.height_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
-    // int32 channels = 7;
+    // int32 width = 1;
+    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.width_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int32 height = 2;
+    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.height_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int32 channels = 3;
     {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.channels_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int64 timestamp = 4;
+    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.timestamp_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    // string frame_id = 5;
+    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.frame_id_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string codec = 6;
+    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.codec_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // bytes encoded_frame = 7;
+    {PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.encoded_frame_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\26\0\5\0\10\0\0\0"
+    "\26\0\0\0\0\10\5\0"
     "inference.FrameRequest"
-    "codec"
     "frame_id"
+    "codec"
   }},
 };
 PROTOBUF_NOINLINE void FrameRequest::Clear() {
@@ -423,19 +423,19 @@ PROTOBUF_NOINLINE void FrameRequest::Clear() {
   cached_has_bits = _impl_._has_bits_[0];
   if ((cached_has_bits & 0x00000007U) != 0) {
     if ((cached_has_bits & 0x00000001U) != 0) {
-      _impl_.encoded_frame_.ClearNonDefaultToEmpty();
+      _impl_.frame_id_.ClearNonDefaultToEmpty();
     }
     if ((cached_has_bits & 0x00000002U) != 0) {
       _impl_.codec_.ClearNonDefaultToEmpty();
     }
     if ((cached_has_bits & 0x00000004U) != 0) {
-      _impl_.frame_id_.ClearNonDefaultToEmpty();
+      _impl_.encoded_frame_.ClearNonDefaultToEmpty();
     }
   }
   if ((cached_has_bits & 0x00000078U) != 0) {
-    ::memset(&_impl_.timestamp_, 0, static_cast<::size_t>(
+    ::memset(&_impl_.width_, 0, static_cast<::size_t>(
         reinterpret_cast<char*>(&_impl_.channels_) -
-        reinterpret_cast<char*>(&_impl_.timestamp_)) + sizeof(_impl_.channels_));
+        reinterpret_cast<char*>(&_impl_.width_)) + sizeof(_impl_.channels_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -459,67 +459,67 @@ PROTOBUF_NOINLINE void FrameRequest::Clear() {
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
-  // bytes encoded_frame = 1;
-  if ((this_._impl_._has_bits_[0] & 0x00000001U) != 0) {
-    if (!this_._internal_encoded_frame().empty()) {
-      const ::std::string& _s = this_._internal_encoded_frame();
-      target = stream->WriteBytesMaybeAliased(1, _s, target);
+  // int32 width = 1;
+  if ((this_._impl_._has_bits_[0] & 0x00000008U) != 0) {
+    if (this_._internal_width() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<1>(
+              stream, this_._internal_width(), target);
     }
   }
 
-  // string codec = 2;
+  // int32 height = 2;
+  if ((this_._impl_._has_bits_[0] & 0x00000010U) != 0) {
+    if (this_._internal_height() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<2>(
+              stream, this_._internal_height(), target);
+    }
+  }
+
+  // int32 channels = 3;
+  if ((this_._impl_._has_bits_[0] & 0x00000040U) != 0) {
+    if (this_._internal_channels() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<3>(
+              stream, this_._internal_channels(), target);
+    }
+  }
+
+  // int64 timestamp = 4;
+  if ((this_._impl_._has_bits_[0] & 0x00000020U) != 0) {
+    if (this_._internal_timestamp() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<4>(
+              stream, this_._internal_timestamp(), target);
+    }
+  }
+
+  // string frame_id = 5;
+  if ((this_._impl_._has_bits_[0] & 0x00000001U) != 0) {
+    if (!this_._internal_frame_id().empty()) {
+      const ::std::string& _s = this_._internal_frame_id();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "inference.FrameRequest.frame_id");
+      target = stream->WriteStringMaybeAliased(5, _s, target);
+    }
+  }
+
+  // string codec = 6;
   if ((this_._impl_._has_bits_[0] & 0x00000002U) != 0) {
     if (!this_._internal_codec().empty()) {
       const ::std::string& _s = this_._internal_codec();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
           _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "inference.FrameRequest.codec");
-      target = stream->WriteStringMaybeAliased(2, _s, target);
+      target = stream->WriteStringMaybeAliased(6, _s, target);
     }
   }
 
-  // int64 timestamp = 3;
-  if ((this_._impl_._has_bits_[0] & 0x00000008U) != 0) {
-    if (this_._internal_timestamp() != 0) {
-      target =
-          ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<3>(
-              stream, this_._internal_timestamp(), target);
-    }
-  }
-
-  // string frame_id = 4;
+  // bytes encoded_frame = 7;
   if ((this_._impl_._has_bits_[0] & 0x00000004U) != 0) {
-    if (!this_._internal_frame_id().empty()) {
-      const ::std::string& _s = this_._internal_frame_id();
-      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "inference.FrameRequest.frame_id");
-      target = stream->WriteStringMaybeAliased(4, _s, target);
-    }
-  }
-
-  // int32 width = 5;
-  if ((this_._impl_._has_bits_[0] & 0x00000010U) != 0) {
-    if (this_._internal_width() != 0) {
-      target =
-          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<5>(
-              stream, this_._internal_width(), target);
-    }
-  }
-
-  // int32 height = 6;
-  if ((this_._impl_._has_bits_[0] & 0x00000020U) != 0) {
-    if (this_._internal_height() != 0) {
-      target =
-          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<6>(
-              stream, this_._internal_height(), target);
-    }
-  }
-
-  // int32 channels = 7;
-  if ((this_._impl_._has_bits_[0] & 0x00000040U) != 0) {
-    if (this_._internal_channels() != 0) {
-      target =
-          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<7>(
-              stream, this_._internal_channels(), target);
+    if (!this_._internal_encoded_frame().empty()) {
+      const ::std::string& _s = this_._internal_encoded_frame();
+      target = stream->WriteBytesMaybeAliased(7, _s, target);
     }
   }
 
@@ -549,49 +549,49 @@ PROTOBUF_NOINLINE void FrameRequest::Clear() {
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
   if ((cached_has_bits & 0x0000007fU) != 0) {
-    // bytes encoded_frame = 1;
+    // string frame_id = 5;
     if ((cached_has_bits & 0x00000001U) != 0) {
-      if (!this_._internal_encoded_frame().empty()) {
-        total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
-                                        this_._internal_encoded_frame());
+      if (!this_._internal_frame_id().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_frame_id());
       }
     }
-    // string codec = 2;
+    // string codec = 6;
     if ((cached_has_bits & 0x00000002U) != 0) {
       if (!this_._internal_codec().empty()) {
         total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                         this_._internal_codec());
       }
     }
-    // string frame_id = 4;
+    // bytes encoded_frame = 7;
     if ((cached_has_bits & 0x00000004U) != 0) {
-      if (!this_._internal_frame_id().empty()) {
-        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                        this_._internal_frame_id());
+      if (!this_._internal_encoded_frame().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_encoded_frame());
       }
     }
-    // int64 timestamp = 3;
+    // int32 width = 1;
     if ((cached_has_bits & 0x00000008U) != 0) {
-      if (this_._internal_timestamp() != 0) {
-        total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
-            this_._internal_timestamp());
-      }
-    }
-    // int32 width = 5;
-    if ((cached_has_bits & 0x00000010U) != 0) {
       if (this_._internal_width() != 0) {
         total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
             this_._internal_width());
       }
     }
-    // int32 height = 6;
-    if ((cached_has_bits & 0x00000020U) != 0) {
+    // int32 height = 2;
+    if ((cached_has_bits & 0x00000010U) != 0) {
       if (this_._internal_height() != 0) {
         total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
             this_._internal_height());
       }
     }
-    // int32 channels = 7;
+    // int64 timestamp = 4;
+    if ((cached_has_bits & 0x00000020U) != 0) {
+      if (this_._internal_timestamp() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+            this_._internal_timestamp());
+      }
+    }
+    // int32 channels = 3;
     if ((cached_has_bits & 0x00000040U) != 0) {
       if (this_._internal_channels() != 0) {
         total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
@@ -617,11 +617,11 @@ void FrameRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::go
   cached_has_bits = from._impl_._has_bits_[0];
   if ((cached_has_bits & 0x0000007fU) != 0) {
     if ((cached_has_bits & 0x00000001U) != 0) {
-      if (!from._internal_encoded_frame().empty()) {
-        _this->_internal_set_encoded_frame(from._internal_encoded_frame());
+      if (!from._internal_frame_id().empty()) {
+        _this->_internal_set_frame_id(from._internal_frame_id());
       } else {
-        if (_this->_impl_.encoded_frame_.IsDefault()) {
-          _this->_internal_set_encoded_frame("");
+        if (_this->_impl_.frame_id_.IsDefault()) {
+          _this->_internal_set_frame_id("");
         }
       }
     }
@@ -635,27 +635,27 @@ void FrameRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::go
       }
     }
     if ((cached_has_bits & 0x00000004U) != 0) {
-      if (!from._internal_frame_id().empty()) {
-        _this->_internal_set_frame_id(from._internal_frame_id());
+      if (!from._internal_encoded_frame().empty()) {
+        _this->_internal_set_encoded_frame(from._internal_encoded_frame());
       } else {
-        if (_this->_impl_.frame_id_.IsDefault()) {
-          _this->_internal_set_frame_id("");
+        if (_this->_impl_.encoded_frame_.IsDefault()) {
+          _this->_internal_set_encoded_frame("");
         }
       }
     }
     if ((cached_has_bits & 0x00000008U) != 0) {
-      if (from._internal_timestamp() != 0) {
-        _this->_impl_.timestamp_ = from._impl_.timestamp_;
-      }
-    }
-    if ((cached_has_bits & 0x00000010U) != 0) {
       if (from._internal_width() != 0) {
         _this->_impl_.width_ = from._impl_.width_;
       }
     }
-    if ((cached_has_bits & 0x00000020U) != 0) {
+    if ((cached_has_bits & 0x00000010U) != 0) {
       if (from._internal_height() != 0) {
         _this->_impl_.height_ = from._impl_.height_;
+      }
+    }
+    if ((cached_has_bits & 0x00000020U) != 0) {
+      if (from._internal_timestamp() != 0) {
+        _this->_impl_.timestamp_ = from._impl_.timestamp_;
       }
     }
     if ((cached_has_bits & 0x00000040U) != 0) {
@@ -682,15 +682,15 @@ void FrameRequest::InternalSwap(FrameRequest* PROTOBUF_RESTRICT PROTOBUF_NONNULL
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.encoded_frame_, &other->_impl_.encoded_frame_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.codec_, &other->_impl_.codec_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.frame_id_, &other->_impl_.frame_id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.codec_, &other->_impl_.codec_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.encoded_frame_, &other->_impl_.encoded_frame_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.channels_)
       + sizeof(FrameRequest::_impl_.channels_)
-      - PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.timestamp_)>(
-          reinterpret_cast<char*>(&_impl_.timestamp_),
-          reinterpret_cast<char*>(&other->_impl_.timestamp_));
+      - PROTOBUF_FIELD_OFFSET(FrameRequest, _impl_.width_)>(
+          reinterpret_cast<char*>(&_impl_.width_),
+          reinterpret_cast<char*>(&other->_impl_.width_));
 }
 
 ::google::protobuf::Metadata FrameRequest::GetMetadata() const {

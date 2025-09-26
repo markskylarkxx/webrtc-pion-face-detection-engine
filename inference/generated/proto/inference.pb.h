@@ -221,45 +221,15 @@ class FrameRequest final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kEncodedFrameFieldNumber = 1,
-    kCodecFieldNumber = 2,
-    kFrameIdFieldNumber = 4,
-    kTimestampFieldNumber = 3,
-    kWidthFieldNumber = 5,
-    kHeightFieldNumber = 6,
-    kChannelsFieldNumber = 7,
+    kFrameIdFieldNumber = 5,
+    kCodecFieldNumber = 6,
+    kEncodedFrameFieldNumber = 7,
+    kWidthFieldNumber = 1,
+    kHeightFieldNumber = 2,
+    kTimestampFieldNumber = 4,
+    kChannelsFieldNumber = 3,
   };
-  // bytes encoded_frame = 1;
-  void clear_encoded_frame() ;
-  const ::std::string& encoded_frame() const;
-  template <typename Arg_ = const ::std::string&, typename... Args_>
-  void set_encoded_frame(Arg_&& arg, Args_... args);
-  ::std::string* PROTOBUF_NONNULL mutable_encoded_frame();
-  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_encoded_frame();
-  void set_allocated_encoded_frame(::std::string* PROTOBUF_NULLABLE value);
-
-  private:
-  const ::std::string& _internal_encoded_frame() const;
-  PROTOBUF_ALWAYS_INLINE void _internal_set_encoded_frame(const ::std::string& value);
-  ::std::string* PROTOBUF_NONNULL _internal_mutable_encoded_frame();
-
-  public:
-  // string codec = 2;
-  void clear_codec() ;
-  const ::std::string& codec() const;
-  template <typename Arg_ = const ::std::string&, typename... Args_>
-  void set_codec(Arg_&& arg, Args_... args);
-  ::std::string* PROTOBUF_NONNULL mutable_codec();
-  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_codec();
-  void set_allocated_codec(::std::string* PROTOBUF_NULLABLE value);
-
-  private:
-  const ::std::string& _internal_codec() const;
-  PROTOBUF_ALWAYS_INLINE void _internal_set_codec(const ::std::string& value);
-  ::std::string* PROTOBUF_NONNULL _internal_mutable_codec();
-
-  public:
-  // string frame_id = 4;
+  // string frame_id = 5;
   void clear_frame_id() ;
   const ::std::string& frame_id() const;
   template <typename Arg_ = const ::std::string&, typename... Args_>
@@ -274,17 +244,37 @@ class FrameRequest final : public ::google::protobuf::Message
   ::std::string* PROTOBUF_NONNULL _internal_mutable_frame_id();
 
   public:
-  // int64 timestamp = 3;
-  void clear_timestamp() ;
-  ::int64_t timestamp() const;
-  void set_timestamp(::int64_t value);
+  // string codec = 6;
+  void clear_codec() ;
+  const ::std::string& codec() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_codec(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_codec();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_codec();
+  void set_allocated_codec(::std::string* PROTOBUF_NULLABLE value);
 
   private:
-  ::int64_t _internal_timestamp() const;
-  void _internal_set_timestamp(::int64_t value);
+  const ::std::string& _internal_codec() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_codec(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_codec();
 
   public:
-  // int32 width = 5;
+  // bytes encoded_frame = 7;
+  void clear_encoded_frame() ;
+  const ::std::string& encoded_frame() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_encoded_frame(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_encoded_frame();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_encoded_frame();
+  void set_allocated_encoded_frame(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_encoded_frame() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_encoded_frame(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_encoded_frame();
+
+  public:
+  // int32 width = 1;
   void clear_width() ;
   ::int32_t width() const;
   void set_width(::int32_t value);
@@ -294,7 +284,7 @@ class FrameRequest final : public ::google::protobuf::Message
   void _internal_set_width(::int32_t value);
 
   public:
-  // int32 height = 6;
+  // int32 height = 2;
   void clear_height() ;
   ::int32_t height() const;
   void set_height(::int32_t value);
@@ -304,7 +294,17 @@ class FrameRequest final : public ::google::protobuf::Message
   void _internal_set_height(::int32_t value);
 
   public:
-  // int32 channels = 7;
+  // int64 timestamp = 4;
+  void clear_timestamp() ;
+  ::int64_t timestamp() const;
+  void set_timestamp(::int64_t value);
+
+  private:
+  ::int64_t _internal_timestamp() const;
+  void _internal_set_timestamp(::int64_t value);
+
+  public:
+  // int32 channels = 3;
   void clear_channels() ;
   ::int32_t channels() const;
   void set_channels(::int32_t value);
@@ -340,12 +340,12 @@ class FrameRequest final : public ::google::protobuf::Message
         const FrameRequest& from_msg);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::internal::ArenaStringPtr encoded_frame_;
-    ::google::protobuf::internal::ArenaStringPtr codec_;
     ::google::protobuf::internal::ArenaStringPtr frame_id_;
-    ::int64_t timestamp_;
+    ::google::protobuf::internal::ArenaStringPtr codec_;
+    ::google::protobuf::internal::ArenaStringPtr encoded_frame_;
     ::int32_t width_;
     ::int32_t height_;
+    ::int64_t timestamp_;
     ::int32_t channels_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -849,72 +849,168 @@ extern const ::google::protobuf::internal::ClassDataFull DetectionResponse_class
 
 // FrameRequest
 
-// bytes encoded_frame = 1;
-inline void FrameRequest::clear_encoded_frame() {
+// int32 width = 1;
+inline void FrameRequest::clear_width() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.encoded_frame_.ClearToEmpty();
+  _impl_.width_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008U;
+}
+inline ::int32_t FrameRequest::width() const {
+  // @@protoc_insertion_point(field_get:inference.FrameRequest.width)
+  return _internal_width();
+}
+inline void FrameRequest::set_width(::int32_t value) {
+  _internal_set_width(value);
+  _impl_._has_bits_[0] |= 0x00000008U;
+  // @@protoc_insertion_point(field_set:inference.FrameRequest.width)
+}
+inline ::int32_t FrameRequest::_internal_width() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.width_;
+}
+inline void FrameRequest::_internal_set_width(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.width_ = value;
+}
+
+// int32 height = 2;
+inline void FrameRequest::clear_height() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.height_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000010U;
+}
+inline ::int32_t FrameRequest::height() const {
+  // @@protoc_insertion_point(field_get:inference.FrameRequest.height)
+  return _internal_height();
+}
+inline void FrameRequest::set_height(::int32_t value) {
+  _internal_set_height(value);
+  _impl_._has_bits_[0] |= 0x00000010U;
+  // @@protoc_insertion_point(field_set:inference.FrameRequest.height)
+}
+inline ::int32_t FrameRequest::_internal_height() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.height_;
+}
+inline void FrameRequest::_internal_set_height(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.height_ = value;
+}
+
+// int32 channels = 3;
+inline void FrameRequest::clear_channels() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.channels_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000040U;
+}
+inline ::int32_t FrameRequest::channels() const {
+  // @@protoc_insertion_point(field_get:inference.FrameRequest.channels)
+  return _internal_channels();
+}
+inline void FrameRequest::set_channels(::int32_t value) {
+  _internal_set_channels(value);
+  _impl_._has_bits_[0] |= 0x00000040U;
+  // @@protoc_insertion_point(field_set:inference.FrameRequest.channels)
+}
+inline ::int32_t FrameRequest::_internal_channels() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.channels_;
+}
+inline void FrameRequest::_internal_set_channels(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.channels_ = value;
+}
+
+// int64 timestamp = 4;
+inline void FrameRequest::clear_timestamp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.timestamp_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000020U;
+}
+inline ::int64_t FrameRequest::timestamp() const {
+  // @@protoc_insertion_point(field_get:inference.FrameRequest.timestamp)
+  return _internal_timestamp();
+}
+inline void FrameRequest::set_timestamp(::int64_t value) {
+  _internal_set_timestamp(value);
+  _impl_._has_bits_[0] |= 0x00000020U;
+  // @@protoc_insertion_point(field_set:inference.FrameRequest.timestamp)
+}
+inline ::int64_t FrameRequest::_internal_timestamp() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.timestamp_;
+}
+inline void FrameRequest::_internal_set_timestamp(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.timestamp_ = value;
+}
+
+// string frame_id = 5;
+inline void FrameRequest::clear_frame_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.frame_id_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001U;
 }
-inline const ::std::string& FrameRequest::encoded_frame() const
+inline const ::std::string& FrameRequest::frame_id() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:inference.FrameRequest.encoded_frame)
-  return _internal_encoded_frame();
+  // @@protoc_insertion_point(field_get:inference.FrameRequest.frame_id)
+  return _internal_frame_id();
 }
 template <typename Arg_, typename... Args_>
-PROTOBUF_ALWAYS_INLINE void FrameRequest::set_encoded_frame(Arg_&& arg, Args_... args) {
+PROTOBUF_ALWAYS_INLINE void FrameRequest::set_frame_id(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000001U;
-  _impl_.encoded_frame_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:inference.FrameRequest.encoded_frame)
+  _impl_.frame_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:inference.FrameRequest.frame_id)
 }
-inline ::std::string* PROTOBUF_NONNULL FrameRequest::mutable_encoded_frame()
+inline ::std::string* PROTOBUF_NONNULL FrameRequest::mutable_frame_id()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::std::string* _s = _internal_mutable_encoded_frame();
-  // @@protoc_insertion_point(field_mutable:inference.FrameRequest.encoded_frame)
+  ::std::string* _s = _internal_mutable_frame_id();
+  // @@protoc_insertion_point(field_mutable:inference.FrameRequest.frame_id)
   return _s;
 }
-inline const ::std::string& FrameRequest::_internal_encoded_frame() const {
+inline const ::std::string& FrameRequest::_internal_frame_id() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.encoded_frame_.Get();
+  return _impl_.frame_id_.Get();
 }
-inline void FrameRequest::_internal_set_encoded_frame(const ::std::string& value) {
+inline void FrameRequest::_internal_set_frame_id(const ::std::string& value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000001U;
-  _impl_.encoded_frame_.Set(value, GetArena());
+  _impl_.frame_id_.Set(value, GetArena());
 }
-inline ::std::string* PROTOBUF_NONNULL FrameRequest::_internal_mutable_encoded_frame() {
+inline ::std::string* PROTOBUF_NONNULL FrameRequest::_internal_mutable_frame_id() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000001U;
-  return _impl_.encoded_frame_.Mutable( GetArena());
+  return _impl_.frame_id_.Mutable( GetArena());
 }
-inline ::std::string* PROTOBUF_NULLABLE FrameRequest::release_encoded_frame() {
+inline ::std::string* PROTOBUF_NULLABLE FrameRequest::release_frame_id() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:inference.FrameRequest.encoded_frame)
+  // @@protoc_insertion_point(field_release:inference.FrameRequest.frame_id)
   if ((_impl_._has_bits_[0] & 0x00000001U) == 0) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001U;
-  auto* released = _impl_.encoded_frame_.Release();
+  auto* released = _impl_.frame_id_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
-    _impl_.encoded_frame_.Set("", GetArena());
+    _impl_.frame_id_.Set("", GetArena());
   }
   return released;
 }
-inline void FrameRequest::set_allocated_encoded_frame(::std::string* PROTOBUF_NULLABLE value) {
+inline void FrameRequest::set_allocated_frame_id(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001U;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001U;
   }
-  _impl_.encoded_frame_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.encoded_frame_.IsDefault()) {
-    _impl_.encoded_frame_.Set("", GetArena());
+  _impl_.frame_id_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.frame_id_.IsDefault()) {
+    _impl_.frame_id_.Set("", GetArena());
   }
-  // @@protoc_insertion_point(field_set_allocated:inference.FrameRequest.encoded_frame)
+  // @@protoc_insertion_point(field_set_allocated:inference.FrameRequest.frame_id)
 }
 
-// string codec = 2;
+// string codec = 6;
 inline void FrameRequest::clear_codec() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.codec_.ClearToEmpty();
@@ -979,165 +1075,69 @@ inline void FrameRequest::set_allocated_codec(::std::string* PROTOBUF_NULLABLE v
   // @@protoc_insertion_point(field_set_allocated:inference.FrameRequest.codec)
 }
 
-// int64 timestamp = 3;
-inline void FrameRequest::clear_timestamp() {
+// bytes encoded_frame = 7;
+inline void FrameRequest::clear_encoded_frame() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.timestamp_ = ::int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000008U;
-}
-inline ::int64_t FrameRequest::timestamp() const {
-  // @@protoc_insertion_point(field_get:inference.FrameRequest.timestamp)
-  return _internal_timestamp();
-}
-inline void FrameRequest::set_timestamp(::int64_t value) {
-  _internal_set_timestamp(value);
-  _impl_._has_bits_[0] |= 0x00000008U;
-  // @@protoc_insertion_point(field_set:inference.FrameRequest.timestamp)
-}
-inline ::int64_t FrameRequest::_internal_timestamp() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.timestamp_;
-}
-inline void FrameRequest::_internal_set_timestamp(::int64_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.timestamp_ = value;
-}
-
-// string frame_id = 4;
-inline void FrameRequest::clear_frame_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.frame_id_.ClearToEmpty();
+  _impl_.encoded_frame_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000004U;
 }
-inline const ::std::string& FrameRequest::frame_id() const
+inline const ::std::string& FrameRequest::encoded_frame() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:inference.FrameRequest.frame_id)
-  return _internal_frame_id();
+  // @@protoc_insertion_point(field_get:inference.FrameRequest.encoded_frame)
+  return _internal_encoded_frame();
 }
 template <typename Arg_, typename... Args_>
-PROTOBUF_ALWAYS_INLINE void FrameRequest::set_frame_id(Arg_&& arg, Args_... args) {
+PROTOBUF_ALWAYS_INLINE void FrameRequest::set_encoded_frame(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000004U;
-  _impl_.frame_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:inference.FrameRequest.frame_id)
+  _impl_.encoded_frame_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:inference.FrameRequest.encoded_frame)
 }
-inline ::std::string* PROTOBUF_NONNULL FrameRequest::mutable_frame_id()
+inline ::std::string* PROTOBUF_NONNULL FrameRequest::mutable_encoded_frame()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::std::string* _s = _internal_mutable_frame_id();
-  // @@protoc_insertion_point(field_mutable:inference.FrameRequest.frame_id)
+  ::std::string* _s = _internal_mutable_encoded_frame();
+  // @@protoc_insertion_point(field_mutable:inference.FrameRequest.encoded_frame)
   return _s;
 }
-inline const ::std::string& FrameRequest::_internal_frame_id() const {
+inline const ::std::string& FrameRequest::_internal_encoded_frame() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.frame_id_.Get();
+  return _impl_.encoded_frame_.Get();
 }
-inline void FrameRequest::_internal_set_frame_id(const ::std::string& value) {
+inline void FrameRequest::_internal_set_encoded_frame(const ::std::string& value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000004U;
-  _impl_.frame_id_.Set(value, GetArena());
+  _impl_.encoded_frame_.Set(value, GetArena());
 }
-inline ::std::string* PROTOBUF_NONNULL FrameRequest::_internal_mutable_frame_id() {
+inline ::std::string* PROTOBUF_NONNULL FrameRequest::_internal_mutable_encoded_frame() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000004U;
-  return _impl_.frame_id_.Mutable( GetArena());
+  return _impl_.encoded_frame_.Mutable( GetArena());
 }
-inline ::std::string* PROTOBUF_NULLABLE FrameRequest::release_frame_id() {
+inline ::std::string* PROTOBUF_NULLABLE FrameRequest::release_encoded_frame() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:inference.FrameRequest.frame_id)
+  // @@protoc_insertion_point(field_release:inference.FrameRequest.encoded_frame)
   if ((_impl_._has_bits_[0] & 0x00000004U) == 0) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000004U;
-  auto* released = _impl_.frame_id_.Release();
+  auto* released = _impl_.encoded_frame_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
-    _impl_.frame_id_.Set("", GetArena());
+    _impl_.encoded_frame_.Set("", GetArena());
   }
   return released;
 }
-inline void FrameRequest::set_allocated_frame_id(::std::string* PROTOBUF_NULLABLE value) {
+inline void FrameRequest::set_allocated_encoded_frame(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000004U;
   } else {
     _impl_._has_bits_[0] &= ~0x00000004U;
   }
-  _impl_.frame_id_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.frame_id_.IsDefault()) {
-    _impl_.frame_id_.Set("", GetArena());
+  _impl_.encoded_frame_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.encoded_frame_.IsDefault()) {
+    _impl_.encoded_frame_.Set("", GetArena());
   }
-  // @@protoc_insertion_point(field_set_allocated:inference.FrameRequest.frame_id)
-}
-
-// int32 width = 5;
-inline void FrameRequest::clear_width() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.width_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010U;
-}
-inline ::int32_t FrameRequest::width() const {
-  // @@protoc_insertion_point(field_get:inference.FrameRequest.width)
-  return _internal_width();
-}
-inline void FrameRequest::set_width(::int32_t value) {
-  _internal_set_width(value);
-  _impl_._has_bits_[0] |= 0x00000010U;
-  // @@protoc_insertion_point(field_set:inference.FrameRequest.width)
-}
-inline ::int32_t FrameRequest::_internal_width() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.width_;
-}
-inline void FrameRequest::_internal_set_width(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.width_ = value;
-}
-
-// int32 height = 6;
-inline void FrameRequest::clear_height() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.height_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000020U;
-}
-inline ::int32_t FrameRequest::height() const {
-  // @@protoc_insertion_point(field_get:inference.FrameRequest.height)
-  return _internal_height();
-}
-inline void FrameRequest::set_height(::int32_t value) {
-  _internal_set_height(value);
-  _impl_._has_bits_[0] |= 0x00000020U;
-  // @@protoc_insertion_point(field_set:inference.FrameRequest.height)
-}
-inline ::int32_t FrameRequest::_internal_height() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.height_;
-}
-inline void FrameRequest::_internal_set_height(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.height_ = value;
-}
-
-// int32 channels = 7;
-inline void FrameRequest::clear_channels() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.channels_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040U;
-}
-inline ::int32_t FrameRequest::channels() const {
-  // @@protoc_insertion_point(field_get:inference.FrameRequest.channels)
-  return _internal_channels();
-}
-inline void FrameRequest::set_channels(::int32_t value) {
-  _internal_set_channels(value);
-  _impl_._has_bits_[0] |= 0x00000040U;
-  // @@protoc_insertion_point(field_set:inference.FrameRequest.channels)
-}
-inline ::int32_t FrameRequest::_internal_channels() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.channels_;
-}
-inline void FrameRequest::_internal_set_channels(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.channels_ = value;
+  // @@protoc_insertion_point(field_set_allocated:inference.FrameRequest.encoded_frame)
 }
 
 // -------------------------------------------------------------------

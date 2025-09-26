@@ -8,8 +8,11 @@ import (
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	pb "webrtc-pion-face-engine/proto"
+     pb "webrtc-pion-face-engine/proto"
 )
+
+// Default timeout for gRPC connection attempt
+const dialTimeout = 5 * time.Second
 
 type InferenceClient struct {
 	conn   *grpc.ClientConn
@@ -17,8 +20,13 @@ type InferenceClient struct {
 }
 
 func NewInferenceClient(addr string) (*InferenceClient, error) {
-	conn, err := grpc.Dial(addr,
+    // Create a context with a timeout for the Dial operation
+	ctx, cancel := context.WithTimeout(context.Background(), dialTimeout)
+	defer cancel()
+    
+	conn, err := grpc.DialContext(ctx, addr,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
+        // grpc.WithBlock() is used to wait until the connection is established
 		grpc.WithBlock(),
 	)
 	if err != nil {
@@ -36,22 +44,31 @@ func (c *InferenceClient) DetectFaces(frameData []byte, width, height, channels 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
+    // --- FIX APPLIED HERE ---
+    // 1. Corrected 'FrameData' to 'EncodedFrame' to match the Protobuf definition (field 7).
+    // 2. Restored the 'Codec' field (field 6) to adhere to the proto schema.
 	req := &pb.FrameRequest{
-		FrameData: frameData,
-		Width:     int32(width),
-		Height:    int32(height),
-		Channels:  int32(channels),
-		Timestamp: time.Now().UnixMilli(),
-		FrameId:   fmt.Sprintf("frame-%d", time.Now().UnixNano()),
+		EncodedFrame: frameData,  // ✅ Correct (PascalCase)
+		Width:     int32(width),  // ✅ Correct (PascalCase)
+		Height:    int32(height), // ✅ Correct (PascalCase)
+		Channels:  int32(channels), // ✅ Correct (PascalCase)
+		Timestamp: time.Now().UnixMilli(), // ✅ Correct (PascalCase)
+		FrameId:   fmt.Sprintf("frame-%d", time.Now().UnixNano()), // ✅ Correct (PascalCase)
+		Codec:     "VP8_Y_PLANE", // ✅ Correct (PascalCase)
 	}
+
+	// Debug log to verify the request
+	log.Printf("🔍 Sending gRPC request - Dim: %dx%d, Channels: %d, Data size: %d bytes",
+		width, height, channels, len(frameData))
 
 	resp, err := c.client.DetectFaces(ctx, req)
 	if err != nil {
 		return nil, 0, fmt.Errorf("gRPC detection failed: %v", err)
 	}
 
-	log.Printf("C++ detection: %d faces, %d ms", len(resp.Faces), resp.ProcessingTimeMs)
-	return resp.Faces, int64(resp.ProcessingTimeMs), nil  // Fixed: cast int32 to int64
+	// This log line may need to be handled by the caller, but leaving for reference
+	// log.Printf("C++ detection: %d faces, %d ms", len(resp.Faces), resp.ProcessingTimeMs)
+	return resp.Faces, int64(resp.ProcessingTimeMs), nil
 }
 
 func (c *InferenceClient) Close() {
@@ -59,16 +76,3 @@ func (c *InferenceClient) Close() {
 		c.conn.Close()
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
