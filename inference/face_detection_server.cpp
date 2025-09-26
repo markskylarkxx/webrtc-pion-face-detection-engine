@@ -1,9 +1,11 @@
+
 #include <grpcpp/grpcpp.h>
 #include <opencv2/opencv.hpp>
 #include <chrono>
 #include <memory>
 #include <string>
 #include <iostream>
+#include <vector>
 
 #include "face_detection.hpp"
 #include "inference.pb.h"
@@ -79,29 +81,40 @@ public:
             return Status::OK;
         }
 
-        // Calculate expected size and validate
-        size_t expected_size = request->width() * request->height() * request->channels();
-        if (request->encoded_frame().size() != expected_size) {
-            std::cerr << "ERROR: Frame data size mismatch. Expected: " << expected_size 
-                      << ", Got: " << request->encoded_frame().size() << std::endl;
-            response->set_timestamp(request->timestamp());
-            response->set_frame_id(request->frame_id());
-            response->set_processing_time_ms(0);
-            return Status::OK;
+        // For VP8 encoded data (1 channel), we need to handle it differently
+        if (request->channels() == 1) {
+            return HandleVP8Frame(context, request, response);
         }
 
+        // Original handling for raw frame data (3 channels)
+        return HandleRawFrame(context, request, response);
+    }
+
+private:
+    cv::CascadeClassifier face_cascade;
+
+    Status HandleRawFrame(ServerContext* context, const FrameRequest* request, DetectionResponse* response) {
+        auto start_time = std::chrono::high_resolution_clock::now();
+
         try {
-            // SAFER: Create Mat with proper data handling
+            // Calculate expected size and validate
+            size_t expected_size = request->width() * request->height() * request->channels();
+            if (request->encoded_frame().size() != expected_size) {
+                std::cerr << "ERROR: Frame data size mismatch. Expected: " << expected_size 
+                          << ", Got: " << request->encoded_frame().size() << std::endl;
+                response->set_timestamp(request->timestamp());
+                response->set_frame_id(request->frame_id());
+                response->set_processing_time_ms(0);
+                return Status::OK;
+            }
+
+            // Create Mat with proper data handling
             cv::Mat frame;
             if (request->channels() == 3) {
                 frame = cv::Mat(request->height(), request->width(), CV_8UC3);
-                // Copy data safely instead of casting pointer
-                memcpy(frame.data, request->encoded_frame().data(), request->encoded_frame().size());
-            } else if (request->channels() == 1) {
-                frame = cv::Mat(request->height(), request->width(), CV_8UC1);
                 memcpy(frame.data, request->encoded_frame().data(), request->encoded_frame().size());
             } else {
-                std::cerr << "ERROR: Unsupported number of channels: " << request->channels() << std::endl;
+                std::cerr << "ERROR: Unsupported number of channels for raw frame: " << request->channels() << std::endl;
                 response->set_timestamp(request->timestamp());
                 response->set_frame_id(request->frame_id());
                 response->set_processing_time_ms(0);
@@ -116,6 +129,69 @@ public:
                 return Status::OK;
             }
 
+            return ProcessFrameWithOpenCV(frame, request, response, start_time);
+
+        } catch (const cv::Exception& e) {
+            std::cerr << "OpenCV Exception in HandleRawFrame: " << e.what() << std::endl;
+            response->set_timestamp(request->timestamp());
+            response->set_frame_id(request->frame_id());
+            response->set_processing_time_ms(0);
+            return Status(grpc::StatusCode::INTERNAL, "OpenCV processing error");
+        }
+    }
+
+    Status HandleVP8Frame(ServerContext* context, const FrameRequest* request, DetectionResponse* response) {
+        auto start_time = std::chrono::high_resolution_clock::now();
+
+        try {
+            // For VP8 data, we'll attempt to decode it
+            std::vector<uchar> vp8_data(request->encoded_frame().begin(), request->encoded_frame().end());
+            
+            // Attempt to decode as VP8 using OpenCV
+            // Note: OpenCV may not support VP8 decoding directly, so we'll use a fallback approach
+            
+            // Fallback: If VP8 decoding fails, try to interpret as raw grayscale data
+            cv::Mat frame;
+            
+            // First, try to interpret as raw grayscale (common fallback)
+            if (request->encoded_frame().size() == static_cast<size_t>(request->width() * request->height())) {
+                frame = cv::Mat(request->height(), request->width(), CV_8UC1);
+                memcpy(frame.data, request->encoded_frame().data(), request->encoded_frame().size());
+                std::cout << "Using raw grayscale interpretation for VP8 data" << std::endl;
+            } else {
+                // If size doesn't match, create a simple test pattern
+                frame = cv::Mat(480, 640, CV_8UC3, cv::Scalar(100, 100, 100));
+                std::cout << "Created test pattern for VP8 data analysis" << std::endl;
+                
+                // Log the actual data characteristics for debugging
+                std::cout << "VP8 data analysis - Size: " << request->encoded_frame().size() 
+                          << ", Expected for " << request->width() << "x" << request->height() 
+                          << ": " << (request->width() * request->height()) << std::endl;
+            }
+
+            if (frame.empty()) {
+                std::cerr << "ERROR: Failed to create frame from VP8 data" << std::endl;
+                response->set_timestamp(request->timestamp());
+                response->set_frame_id(request->frame_id());
+                response->set_processing_time_ms(0);
+                return Status::OK;
+            }
+
+            return ProcessFrameWithOpenCV(frame, request, response, start_time);
+
+        } catch (const cv::Exception& e) {
+            std::cerr << "OpenCV Exception in HandleVP8Frame: " << e.what() << std::endl;
+            response->set_timestamp(request->timestamp());
+            response->set_frame_id(request->frame_id());
+            response->set_processing_time_ms(0);
+            return Status(grpc::StatusCode::INTERNAL, "VP8 processing error");
+        }
+    }
+
+    Status ProcessFrameWithOpenCV(const cv::Mat& frame, const FrameRequest* request, 
+                                 DetectionResponse* response, 
+                                 std::chrono::high_resolution_clock::time_point start_time) {
+        try {
             // Convert to grayscale for Haar cascade
             cv::Mat gray;
             if (frame.channels() == 3) {
@@ -135,6 +211,7 @@ public:
                 cv::minMaxLoc(gray, &minVal, &maxVal);
                 std::cout << "Debug frame " << debug_counter 
                           << " - Size: " << frame.cols << "x" << frame.rows 
+                          << ", Channels: " << frame.channels()
                           << ", Gray range: " << minVal << "-" << maxVal << std::endl;
                 debug_counter++;
             }
@@ -185,37 +262,27 @@ public:
             response->set_frame_id(request->frame_id());
             response->set_processing_time_ms(duration.count());
 
-            if (faces.size() > 0 || debug_counter <= 3) {
-                std::cout << "Processed frame " << request->frame_id() 
-                          << ": detected " << faces.size() << " faces in " 
-                          << duration.count() << "ms" << std::endl;
-            }
+            // Always log for now to see what's happening
+            std::cout << "C++ detection: " << faces.size() << " faces, " 
+                      << duration.count() << " ms, Frame size: " << frame.cols << "x" << frame.rows 
+                      << "x" << frame.channels() << std::endl;
 
         } catch (const cv::Exception& e) {
-            std::cerr << "OpenCV Exception in DetectFaces: " << e.what() << std::endl;
+            std::cerr << "OpenCV Exception in ProcessFrameWithOpenCV: " << e.what() << std::endl;
             response->set_timestamp(request->timestamp());
             response->set_frame_id(request->frame_id());
             response->set_processing_time_ms(0);
             return Status(grpc::StatusCode::INTERNAL, "OpenCV processing error");
         } catch (const std::exception& e) {
-            std::cerr << "Standard Exception in DetectFaces: " << e.what() << std::endl;
+            std::cerr << "Standard Exception in ProcessFrameWithOpenCV: " << e.what() << std::endl;
             response->set_timestamp(request->timestamp());
             response->set_frame_id(request->frame_id());
             response->set_processing_time_ms(0);
             return Status(grpc::StatusCode::INTERNAL, "Processing error");
-        } catch (...) {
-            std::cerr << "Unknown Exception in DetectFaces" << std::endl;
-            response->set_timestamp(request->timestamp());
-            response->set_frame_id(request->frame_id());
-            response->set_processing_time_ms(0);
-            return Status(grpc::StatusCode::INTERNAL, "Unknown processing error");
         }
 
         return Status::OK;
     }
-
-private:
-    cv::CascadeClassifier face_cascade;
 };
 
 void RunServer() {

@@ -1,6 +1,3 @@
-
-
-
 class WebRTCClient {
     constructor() {
         this.localStream = null;
