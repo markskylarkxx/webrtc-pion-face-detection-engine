@@ -1,0 +1,117 @@
+1. Browser Client (index.html + webrtc.js)
+
+Captures video from the user’s camera.
+
+Connects to a signaling server via WebSocket.
+
+Creates a WebRTC PeerConnection and data channel.
+
+Sends video to a remote server (IngestWorker).
+
+Receives face detection results via the data channel and draws bounding boxes on the video.
+
+2. Signaling Server (handlers.go)
+
+A simple WebSocket server that routes SDP offers/answers and ICE candidates between clients and workers.
+
+Handles multiple connections via a map[clientID]*websocket.Conn.
+
+Ensures a browser client can negotiate WebRTC with a worker (your Go main.go).
+
+3. Ingest Worker (main.go)
+
+Acts as a WebRTC endpoint/server for browser clients.
+
+Receives video tracks from the browser.
+
+Processes VP8 frames (decoding RTP packets into full frames).
+
+Calls the gRPC face detection server for each frame.
+
+Sends detection results back over the WebRTC data channel.
+
+4. Face Detection Server (face_detection_server.cpp)
+
+A gRPC server (C++) that implements FaceDetection::DetectFaces.
+
+Uses OpenCV Haar cascades or later TensorFlow Lite/C++ engine to detect faces.
+
+Returns bounding boxes and timestamps for each frame.
+
+Communication Flow
+
+Browser → Signaling Server: Sends SDP offer + ICE candidates.
+
+Signaling Server → Ingest Worker: Routes the offer and candidates.
+
+Ingest Worker → Browser: Sends SDP answer + ICE candidates back.
+
+Browser ↔ Ingest Worker: Video track flows via WebRTC.
+
+Ingest Worker → gRPC Face Detection Server: Sends frames via gRPC.
+
+Face Detection Server → Ingest Worker: Returns detected bounding boxes.
+
+Ingest Worker → Browser: Sends detection results via WebRTC data channel.
+
+Browser: Draws boxes on local video.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What you need to run this
+
+Start gRPC Face Detection Server (C++):
+
+./face_detection_server
+
+
+Listens on localhost:50051.
+
+Start Signaling Server (Go):
+
+go run handlers.go
+
+
+Listens on localhost:8080 for WebSocket connections.
+
+Start Ingest Worker (Go):
+
+WORKER_ID=ingest_worker_1 SIGNALING_URL=ws://localhost:8080 go run main.go
+
+
+Connects to signaling server.
+
+Listens for WebRTC offers.
+
+Open index.html in browser:
+
+Click Start Camera → Connect to Server.
+
+You should see the video and, when the worker sends back detections, bounding boxes appear.
+
+Next Steps / Checks
+
+Make sure your C++ gRPC server and Go gRPC client have compatible proto files.
+
+Ensure the browser can reach the signaling server (ws://localhost:8080).
+
+Check console logs in browser + ingest worker for ICE negotiation errors.
+
+Adjust VP8 frame processing rate if CPU usage is high (currently every 10th frame).

@@ -1,0 +1,27 @@
+
+
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                // OpenCV includes - try both opencv4 and opencv paths
+                "/opt/homebrew/opt/opencv/include/opencv4",
+                "/opt/homebrew/opt/opencv/include",
+                // Additional system paths
+                "/opt/homebrew/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64",
+            "compilerArgs": [
+                "-I/opt/homebrew/opt/opencv/include/opencv4",
+                "-I/opt/homebrew/opt/opencv/include"
+            ]
+        }
+    ],
+    "version": 4
+}
