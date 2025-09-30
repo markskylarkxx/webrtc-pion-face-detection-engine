@@ -9,6 +9,8 @@ require (
 	google.golang.org/grpc v1.75.1
 )
 
+require github.com/xlab/libvpx-go v0.0.0-20220203233824-652b2616315c
+
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect

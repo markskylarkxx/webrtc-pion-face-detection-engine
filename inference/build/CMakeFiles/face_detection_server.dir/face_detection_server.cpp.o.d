@@ -1486,4 +1486,40 @@ CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o: \
   /opt/homebrew/include/grpcpp/support/stub_options.h \
   /opt/homebrew/include/grpcpp/ports_def.inc \
   /opt/homebrew/include/grpcpp/ports_undef.inc \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/include/face_detection.hpp
+  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/include/face_detection.hpp \
+  /opt/homebrew/include/libavcodec/avcodec.h \
+  /opt/homebrew/include/libavutil/samplefmt.h \
+  /opt/homebrew/include/libavutil/attributes.h \
+  /opt/homebrew/include/libavutil/avutil.h \
+  /opt/homebrew/include/libavutil/common.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/inttypes.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/inttypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/inttypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_inttypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_inttypes.h \
+  /opt/homebrew/include/libavutil/error.h \
+  /opt/homebrew/include/libavutil/macros.h \
+  /opt/homebrew/include/libavutil/avconfig.h \
+  /opt/homebrew/include/libavutil/version.h \
+  /opt/homebrew/include/libavutil/mem.h \
+  /opt/homebrew/include/libavutil/rational.h \
+  /opt/homebrew/include/libavutil/mathematics.h \
+  /opt/homebrew/include/libavutil/intfloat.h \
+  /opt/homebrew/include/libavutil/log.h \
+  /opt/homebrew/include/libavutil/pixfmt.h \
+  /opt/homebrew/include/libavutil/buffer.h \
+  /opt/homebrew/include/libavutil/channel_layout.h \
+  /opt/homebrew/include/libavutil/dict.h \
+  /opt/homebrew/include/libavutil/frame.h \
+  /opt/homebrew/include/libavcodec/codec.h \
+  /opt/homebrew/include/libavutil/hwcontext.h \
+  /opt/homebrew/include/libavcodec/codec_id.h \
+  /opt/homebrew/include/libavcodec/version_major.h \
+  /opt/homebrew/include/libavcodec/defs.h \
+  /opt/homebrew/include/libavcodec/packet.h \
+  /opt/homebrew/include/libavcodec/version.h \
+  /opt/homebrew/include/libavcodec/codec_desc.h \
+  /opt/homebrew/include/libavcodec/codec_par.h \
+  /opt/homebrew/include/libavutil/imgutils.h \
+  /opt/homebrew/include/libavutil/pixdesc.h \
+  /opt/homebrew/include/libavutil/opt.h

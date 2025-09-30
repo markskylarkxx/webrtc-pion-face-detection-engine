@@ -181,6 +181,10 @@ face_detection_server: /opt/homebrew/lib/libopencv_xobjdetect.4.12.0.dylib
 face_detection_server: /opt/homebrew/lib/libopencv_xphoto.4.12.0.dylib
 face_detection_server: /opt/homebrew/lib/libgrpc++.1.75.0.dylib
 face_detection_server: /opt/homebrew/lib/libgrpc.50.0.0.dylib
+face_detection_server: /opt/homebrew/lib/libavcodec.dylib
+face_detection_server: /opt/homebrew/lib/libavformat.dylib
+face_detection_server: /opt/homebrew/lib/libavutil.dylib
+face_detection_server: /opt/homebrew/lib/libswscale.dylib
 face_detection_server: /opt/homebrew/lib/libopencv_shape.4.12.0.dylib
 face_detection_server: /opt/homebrew/lib/libopencv_highgui.4.12.0.dylib
 face_detection_server: /opt/homebrew/lib/libopencv_datasets.4.12.0.dylib

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>WebRTC Face Detection</title>
@@ -29,6 +29,108 @@
     <div id="results">
         <h3>Detection Results:</h3>
         <div id="resultText">No results yet</div>
+    </div>
+
+    <script src="webrtc.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time Face Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .video-container {
+            position: relative;
+            width: 640px;
+            height: 480px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        #localVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover:not(:disabled) {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        #stopBtn {
+            background: #dc3545;
+        }
+        #stopBtn:hover:not(:disabled) {
+            background: #c82333;
+        }
+        .results {
+            background: #2d2d2d;
+            padding: 15px;
+            border-radius: 5px;
+            min-height: 100px;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            background: #343a40;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 Real-time Face Detection</h1>
+        
+        <div class="controls">
+            <button id="startBtn">📷 Start Camera</button>
+            <button id="connectBtn" disabled>🔗 Connect to Server</button>
+            <button id="stopBtn" disabled>🛑 Stop</button>
+        </div>
+
+        <div class="video-container" id="videoContainer">
+            <video id="localVideo" autoplay muted playsinline></video>
+            <!-- Canvas for bounding boxes will be added here by JavaScript -->
+        </div>
+
+        <div class="results">
+            <h3>Detection Results:</h3>
+            <div id="resultText">No results yet</div>
+        </div>
+
+        <div class="status">
+            <strong>Status:</strong> <span id="statusText">Initializing...</span>
+        </div>
     </div>
 
     <script src="webrtc.js"></script>
