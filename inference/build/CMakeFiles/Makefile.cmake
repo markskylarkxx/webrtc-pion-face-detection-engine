@@ -7,11 +7,11 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/CMakeLists.txt"
+  "/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/CMakeLists.txt"
   "CMakeFiles/4.0.3/CMakeCCompiler.cmake"
   "CMakeFiles/4.0.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.0.3/CMakeSystem.cmake"
-  "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/haarcascade_frontalface_default.xml"
+  "/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/haarcascade_frontalface_default.xml"
   "/opt/homebrew/lib/cmake/absl/abslConfig.cmake"
   "/opt/homebrew/lib/cmake/absl/abslConfigVersion.cmake"
   "/opt/homebrew/lib/cmake/absl/abslTargets-release.cmake"

@@ -1,6 +1,6 @@
 CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o: \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/generated/proto/inference.pb.cc \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/generated/proto/inference.pb.h \
+  /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.pb.cc \
+  /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.pb.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/limits \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \

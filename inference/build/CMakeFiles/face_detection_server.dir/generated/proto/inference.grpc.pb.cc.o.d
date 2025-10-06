@@ -1,6 +1,6 @@
 CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o: \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/generated/proto/inference.grpc.pb.cc \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/generated/proto/inference.pb.h \
+  /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.grpc.pb.cc \
+  /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.pb.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/limits \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \
@@ -1217,7 +1217,7 @@ CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o: \
   /opt/homebrew/include/google/protobuf/message.h \
   /opt/homebrew/include/google/protobuf/map.h \
   /opt/homebrew/include/google/protobuf/reflection.h \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/generated/proto/inference.grpc.pb.h \
+  /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.grpc.pb.h \
   /opt/homebrew/include/grpcpp/generic/async_generic_service.h \
   /opt/homebrew/include/grpc/support/port_platform.h \
   /opt/homebrew/include/grpcpp/generic/callback_generic_service.h \

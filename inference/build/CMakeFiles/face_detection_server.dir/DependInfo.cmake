@@ -8,10 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/face_detection.cpp" "CMakeFiles/face_detection_server.dir/face_detection.cpp.o" "gcc" "CMakeFiles/face_detection_server.dir/face_detection.cpp.o.d"
-  "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/face_detection_server.cpp" "CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o" "gcc" "CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o.d"
-  "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/generated/proto/inference.grpc.pb.cc" "CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o" "gcc" "CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o.d"
-  "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/generated/proto/inference.pb.cc" "CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o" "gcc" "CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o.d"
+  "/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection.cpp" "CMakeFiles/face_detection_server.dir/face_detection.cpp.o" "gcc" "CMakeFiles/face_detection_server.dir/face_detection.cpp.o.d"
+  "/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection_server.cpp" "CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o" "gcc" "CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o.d"
+  "/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.grpc.pb.cc" "CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o" "gcc" "CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o.d"
+  "/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.pb.cc" "CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o" "gcc" "CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o.d"
+  "/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Log.cpp" "CMakeFiles/face_detection_server.dir/src/Log.cpp.o" "gcc" "CMakeFiles/face_detection_server.dir/src/Log.cpp.o.d"
+  "/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Preprocess.cpp" "CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o" "gcc" "CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o.d"
+  "/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/TfLiteEngine.cpp" "CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o" "gcc" "CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

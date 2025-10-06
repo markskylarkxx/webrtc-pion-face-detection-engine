@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DPROTOBUF_USE_DLLS
 
-CXX_INCLUDES = -I"/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build" -I"/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/include" -I"/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/generated/proto" -isystem /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4 -isystem /opt/homebrew/include -isystem /opt/homebrew/Cellar/openssl@3/3.5.2/include
+CXX_INCLUDES = -I/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build -I/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/include -I/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto -I/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/third_party -isystem /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4 -isystem /opt/homebrew/include -isystem /opt/homebrew/Cellar/openssl@3/3.5.2/include
 
 CXX_FLAGSarm64 = -std=gnu++17 -arch arm64
 

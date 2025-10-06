@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/cmake_install.cmake"
+		"/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

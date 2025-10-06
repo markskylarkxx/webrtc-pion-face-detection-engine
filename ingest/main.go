@@ -1275,7 +1275,7 @@ type IngestWorker struct {
 	lastProcessTime   time.Time
 	framesPerSecond   int
 	
-	// FIXED: VP8 frame assembly with proper state management
+	// VP8 frame assembly
 	frameAssembler    *VP8FrameAssembler
 }
 
@@ -1346,7 +1346,7 @@ func (vfa *VP8FrameAssembler) ProcessPacket(rtpPacket *rtp.Packet) ([]byte, bool
 	if isStartPacket || (!vfa.frameStarted && isNewTimestamp) {
 		vfa.currentTimestamp = rtpPacket.Timestamp
 		vfa.frameStarted = true
-		vfa.buffer = vfa.buffer[:0] // Reset buffer
+		vfa.buffer = vfa.buffer[:0]
 	}
 
 	// Append payload
@@ -1644,7 +1644,7 @@ func (w *IngestWorker) handleSignalingMessages() {
 	}
 }
 
-// FIXED: Process VP8 track with proper frame assembly
+// FIXED: Process VP8 track - ALWAYS send keyframes, apply FPS limiting only to P-frames
 func (w *IngestWorker) processVP8Track(track *webrtc.TrackRemote) {
 	log.Printf("Starting VP8 processing (target: %d FPS)", w.framesPerSecond)
 
@@ -1669,24 +1669,27 @@ func (w *IngestWorker) processVP8Track(track *webrtc.TrackRemote) {
 			continue
 		}
 
-		// Frame rate limiting
+		// CRITICAL FIX: Always send keyframes immediately, bypass FPS throttling
+		if isKeyframe {
+			frameCopy := make([]byte, len(frameData))
+			copy(frameCopy, frameData)
+			w.keyframeReceived = true
+			log.Printf(">>> SENDING KEYFRAME #%d to gRPC (%d bytes)", w.frameAssembler.frameCount, len(frameCopy))
+			go w.processEncodedFrame(frameCopy, w.frameAssembler.frameCount, "Keyframe")
+			continue // Don't apply FPS limiting to keyframes
+		}
+
+		// Apply FPS limiting ONLY to P-frames
 		frameSkipCounter++
 		if frameSkipCounter < framesToSkip {
 			continue
 		}
 		frameSkipCounter = 0
 
-		// Process frame asynchronously
+		// Process P-frame
 		frameCopy := make([]byte, len(frameData))
 		copy(frameCopy, frameData)
-		
-		frameType := "P-frame"
-		if isKeyframe {
-			frameType = "Keyframe"
-			w.keyframeReceived = true
-		}
-		
-		go w.processEncodedFrame(frameCopy, w.frameAssembler.frameCount, frameType)
+		go w.processEncodedFrame(frameCopy, w.frameAssembler.frameCount, "P-frame")
 	}
 }
 
@@ -1696,10 +1699,12 @@ func (w *IngestWorker) processEncodedFrame(frameData []byte, frameNum int, frame
 		return
 	}
 
-	// Rate limiting
-	now := time.Now()
-	if now.Sub(w.lastProcessTime) < time.Second/time.Duration(w.framesPerSecond) {
-		return
+	// Rate limiting for P-frames only (keyframes already bypassed this)
+	if frameType != "Keyframe" {
+		now := time.Now()
+		if now.Sub(w.lastProcessTime) < time.Second/time.Duration(w.framesPerSecond) {
+			return
+		}
 	}
 
 	// Backpressure control
@@ -1711,7 +1716,7 @@ func (w *IngestWorker) processEncodedFrame(frameData []byte, frameNum int, frame
 	w.frameCounter++
 	currentFrameID := w.frameCounter
 	w.processingFrames[currentFrameID] = true
-	w.lastProcessTime = now
+	w.lastProcessTime = time.Now()
 	w.frameMutex.Unlock()
 
 	defer func() {
@@ -1750,7 +1755,7 @@ func (w *IngestWorker) processEncodedFrame(frameData []byte, frameNum int, frame
 	result := DetectionResult{
 		FacesDetected: len(boundingBoxes),
 		BoundingBoxes: boundingBoxes,
-		Timestamp:     now.UnixMilli(),
+		Timestamp:     time.Now().UnixMilli(),
 		FrameType:     frameType,
 	}
 

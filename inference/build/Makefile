@@ -57,10 +57,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference"
+CMAKE_SOURCE_DIR = /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build"
+CMAKE_BINARY_DIR = /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -225,6 +225,78 @@ generated/proto/inference.pb.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.s
 .PHONY : generated/proto/inference.pb.cc.s
 
+src/Log.o: src/Log.cpp.o
+.PHONY : src/Log.o
+
+# target to build an object file
+src/Log.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/src/Log.cpp.o
+.PHONY : src/Log.cpp.o
+
+src/Log.i: src/Log.cpp.i
+.PHONY : src/Log.i
+
+# target to preprocess a source file
+src/Log.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/src/Log.cpp.i
+.PHONY : src/Log.cpp.i
+
+src/Log.s: src/Log.cpp.s
+.PHONY : src/Log.s
+
+# target to generate assembly for a file
+src/Log.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/src/Log.cpp.s
+.PHONY : src/Log.cpp.s
+
+src/Preprocess.o: src/Preprocess.cpp.o
+.PHONY : src/Preprocess.o
+
+# target to build an object file
+src/Preprocess.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o
+.PHONY : src/Preprocess.cpp.o
+
+src/Preprocess.i: src/Preprocess.cpp.i
+.PHONY : src/Preprocess.i
+
+# target to preprocess a source file
+src/Preprocess.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.i
+.PHONY : src/Preprocess.cpp.i
+
+src/Preprocess.s: src/Preprocess.cpp.s
+.PHONY : src/Preprocess.s
+
+# target to generate assembly for a file
+src/Preprocess.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.s
+.PHONY : src/Preprocess.cpp.s
+
+src/TfLiteEngine.o: src/TfLiteEngine.cpp.o
+.PHONY : src/TfLiteEngine.o
+
+# target to build an object file
+src/TfLiteEngine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o
+.PHONY : src/TfLiteEngine.cpp.o
+
+src/TfLiteEngine.i: src/TfLiteEngine.cpp.i
+.PHONY : src/TfLiteEngine.i
+
+# target to preprocess a source file
+src/TfLiteEngine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.i
+.PHONY : src/TfLiteEngine.cpp.i
+
+src/TfLiteEngine.s: src/TfLiteEngine.cpp.s
+.PHONY : src/TfLiteEngine.s
+
+# target to generate assembly for a file
+src/TfLiteEngine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.s
+.PHONY : src/TfLiteEngine.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -246,6 +318,15 @@ help:
 	@echo "... generated/proto/inference.pb.o"
 	@echo "... generated/proto/inference.pb.i"
 	@echo "... generated/proto/inference.pb.s"
+	@echo "... src/Log.o"
+	@echo "... src/Log.i"
+	@echo "... src/Log.s"
+	@echo "... src/Preprocess.o"
+	@echo "... src/Preprocess.i"
+	@echo "... src/Preprocess.s"
+	@echo "... src/TfLiteEngine.o"
+	@echo "... src/TfLiteEngine.i"
+	@echo "... src/TfLiteEngine.s"
 .PHONY : help
 
 

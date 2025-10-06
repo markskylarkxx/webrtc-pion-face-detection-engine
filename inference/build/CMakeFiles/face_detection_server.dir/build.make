@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference"
+CMAKE_SOURCE_DIR = /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build"
+CMAKE_BINARY_DIR = /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/face_detection_server.dir/depend.make
@@ -73,65 +73,110 @@ CMakeFiles/face_detection_server.dir/codegen:
 .PHONY : CMakeFiles/face_detection_server.dir/codegen
 
 CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o: CMakeFiles/face_detection_server.dir/flags.make
-CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o: /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/face_detection_server.cpp
+CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o: /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection_server.cpp
 CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o: CMakeFiles/face_detection_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o -MF CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o.d -o CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o -c "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/face_detection_server.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o -MF CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o.d -o CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o -c /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection_server.cpp
 
 CMakeFiles/face_detection_server.dir/face_detection_server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/face_detection_server.dir/face_detection_server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/face_detection_server.cpp" > CMakeFiles/face_detection_server.dir/face_detection_server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection_server.cpp > CMakeFiles/face_detection_server.dir/face_detection_server.cpp.i
 
 CMakeFiles/face_detection_server.dir/face_detection_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/face_detection_server.dir/face_detection_server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/face_detection_server.cpp" -o CMakeFiles/face_detection_server.dir/face_detection_server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection_server.cpp -o CMakeFiles/face_detection_server.dir/face_detection_server.cpp.s
 
 CMakeFiles/face_detection_server.dir/face_detection.cpp.o: CMakeFiles/face_detection_server.dir/flags.make
-CMakeFiles/face_detection_server.dir/face_detection.cpp.o: /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/face_detection.cpp
+CMakeFiles/face_detection_server.dir/face_detection.cpp.o: /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection.cpp
 CMakeFiles/face_detection_server.dir/face_detection.cpp.o: CMakeFiles/face_detection_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/face_detection_server.dir/face_detection.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/face_detection.cpp.o -MF CMakeFiles/face_detection_server.dir/face_detection.cpp.o.d -o CMakeFiles/face_detection_server.dir/face_detection.cpp.o -c "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/face_detection.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/face_detection_server.dir/face_detection.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/face_detection.cpp.o -MF CMakeFiles/face_detection_server.dir/face_detection.cpp.o.d -o CMakeFiles/face_detection_server.dir/face_detection.cpp.o -c /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection.cpp
 
 CMakeFiles/face_detection_server.dir/face_detection.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/face_detection_server.dir/face_detection.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/face_detection.cpp" > CMakeFiles/face_detection_server.dir/face_detection.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection.cpp > CMakeFiles/face_detection_server.dir/face_detection.cpp.i
 
 CMakeFiles/face_detection_server.dir/face_detection.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/face_detection_server.dir/face_detection.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/face_detection.cpp" -o CMakeFiles/face_detection_server.dir/face_detection.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection.cpp -o CMakeFiles/face_detection_server.dir/face_detection.cpp.s
+
+CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o: CMakeFiles/face_detection_server.dir/flags.make
+CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o: /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/TfLiteEngine.cpp
+CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o: CMakeFiles/face_detection_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o -MF CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o.d -o CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o -c /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/TfLiteEngine.cpp
+
+CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/TfLiteEngine.cpp > CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.i
+
+CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/TfLiteEngine.cpp -o CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.s
+
+CMakeFiles/face_detection_server.dir/src/Log.cpp.o: CMakeFiles/face_detection_server.dir/flags.make
+CMakeFiles/face_detection_server.dir/src/Log.cpp.o: /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Log.cpp
+CMakeFiles/face_detection_server.dir/src/Log.cpp.o: CMakeFiles/face_detection_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/face_detection_server.dir/src/Log.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/src/Log.cpp.o -MF CMakeFiles/face_detection_server.dir/src/Log.cpp.o.d -o CMakeFiles/face_detection_server.dir/src/Log.cpp.o -c /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Log.cpp
+
+CMakeFiles/face_detection_server.dir/src/Log.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/face_detection_server.dir/src/Log.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Log.cpp > CMakeFiles/face_detection_server.dir/src/Log.cpp.i
+
+CMakeFiles/face_detection_server.dir/src/Log.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/face_detection_server.dir/src/Log.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Log.cpp -o CMakeFiles/face_detection_server.dir/src/Log.cpp.s
+
+CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o: CMakeFiles/face_detection_server.dir/flags.make
+CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o: /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Preprocess.cpp
+CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o: CMakeFiles/face_detection_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o -MF CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o.d -o CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o -c /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Preprocess.cpp
+
+CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Preprocess.cpp > CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.i
+
+CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/src/Preprocess.cpp -o CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.s
 
 CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o: CMakeFiles/face_detection_server.dir/flags.make
-CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o: /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/generated/proto/inference.pb.cc
+CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o: /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.pb.cc
 CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o: CMakeFiles/face_detection_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o -MF CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o.d -o CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o -c "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/generated/proto/inference.pb.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o -MF CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o.d -o CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o -c /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.pb.cc
 
 CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/generated/proto/inference.pb.cc" > CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.pb.cc > CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.i
 
 CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/generated/proto/inference.pb.cc" -o CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.pb.cc -o CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.s
 
 CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o: CMakeFiles/face_detection_server.dir/flags.make
-CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o: /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/generated/proto/inference.grpc.pb.cc
+CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o: /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.grpc.pb.cc
 CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o: CMakeFiles/face_detection_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o -MF CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o.d -o CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o -c "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/generated/proto/inference.grpc.pb.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o -MF CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o.d -o CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o -c /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.grpc.pb.cc
 
 CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/generated/proto/inference.grpc.pb.cc" > CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.grpc.pb.cc > CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.i
 
 CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/generated/proto/inference.grpc.pb.cc" -o CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.grpc.pb.cc -o CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.s
 
 # Object files for target face_detection_server
 face_detection_server_OBJECTS = \
 "CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o" \
 "CMakeFiles/face_detection_server.dir/face_detection.cpp.o" \
+"CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o" \
+"CMakeFiles/face_detection_server.dir/src/Log.cpp.o" \
+"CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o" \
 "CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o" \
 "CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o"
 
@@ -140,6 +185,9 @@ face_detection_server_EXTERNAL_OBJECTS =
 
 face_detection_server: CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o
 face_detection_server: CMakeFiles/face_detection_server.dir/face_detection.cpp.o
+face_detection_server: CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o
+face_detection_server: CMakeFiles/face_detection_server.dir/src/Log.cpp.o
+face_detection_server: CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o
 face_detection_server: CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o
 face_detection_server: CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o
 face_detection_server: CMakeFiles/face_detection_server.dir/build.make
@@ -185,6 +233,7 @@ face_detection_server: /opt/homebrew/lib/libavcodec.dylib
 face_detection_server: /opt/homebrew/lib/libavformat.dylib
 face_detection_server: /opt/homebrew/lib/libavutil.dylib
 face_detection_server: /opt/homebrew/lib/libswscale.dylib
+face_detection_server: /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/lib/libtensorflowlite.dylib
 face_detection_server: /opt/homebrew/lib/libopencv_shape.4.12.0.dylib
 face_detection_server: /opt/homebrew/lib/libopencv_highgui.4.12.0.dylib
 face_detection_server: /opt/homebrew/lib/libopencv_datasets.4.12.0.dylib
@@ -304,7 +353,7 @@ face_detection_server: /opt/homebrew/lib/libabsl_spinlock_wait.2508.0.0.dylib
 face_detection_server: /opt/homebrew/lib/libabsl_raw_logging_internal.2508.0.0.dylib
 face_detection_server: /opt/homebrew/lib/libabsl_log_severity.2508.0.0.dylib
 face_detection_server: CMakeFiles/face_detection_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable face_detection_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable face_detection_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/face_detection_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -316,6 +365,6 @@ CMakeFiles/face_detection_server.dir/clean:
 .PHONY : CMakeFiles/face_detection_server.dir/clean
 
 CMakeFiles/face_detection_server.dir/depend:
-	cd "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference" "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference" "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build" "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build" "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles/face_detection_server.dir/DependInfo.cmake" "--color=$(COLOR)"
+	cd /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles/face_detection_server.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/face_detection_server.dir/depend
 

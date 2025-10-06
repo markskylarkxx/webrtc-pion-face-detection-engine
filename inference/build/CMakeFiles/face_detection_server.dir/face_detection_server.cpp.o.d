@@ -1,5 +1,5 @@
 CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o: \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/face_detection_server.cpp \
+  /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/face_detection_server.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \
@@ -1370,8 +1370,8 @@ CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o: \
   /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4/opencv2/video.hpp \
   /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4/opencv2/video/tracking.hpp \
   /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4/opencv2/video/background_segm.hpp \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/generated/proto/inference.grpc.pb.h \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/generated/proto/inference.pb.h \
+  /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.grpc.pb.h \
+  /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/generated/proto/inference.pb.h \
   /opt/homebrew/include/google/protobuf/runtime_version.h \
   /opt/homebrew/include/google/protobuf/io/coded_stream.h \
   /opt/homebrew/include/google/protobuf/endian.h \
@@ -1486,7 +1486,7 @@ CMakeFiles/face_detection_server.dir/face_detection_server.cpp.o: \
   /opt/homebrew/include/grpcpp/support/stub_options.h \
   /opt/homebrew/include/grpcpp/ports_def.inc \
   /opt/homebrew/include/grpcpp/ports_undef.inc \
-  /Users/kenechukwumark/My\ work/webrtc-pion-face-engine/inference/include/face_detection.hpp \
+  /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/include/face_detection.hpp \
   /opt/homebrew/include/libavcodec/avcodec.h \
   /opt/homebrew/include/libavutil/samplefmt.h \
   /opt/homebrew/include/libavutil/attributes.h \

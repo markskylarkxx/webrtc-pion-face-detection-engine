@@ -7,6 +7,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/face_detection_server.dir/generated/proto/inference.grpc.pb.cc.o.d"
   "CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o"
   "CMakeFiles/face_detection_server.dir/generated/proto/inference.pb.cc.o.d"
+  "CMakeFiles/face_detection_server.dir/src/Log.cpp.o"
+  "CMakeFiles/face_detection_server.dir/src/Log.cpp.o.d"
+  "CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o"
+  "CMakeFiles/face_detection_server.dir/src/Preprocess.cpp.o.d"
+  "CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o"
+  "CMakeFiles/face_detection_server.dir/src/TfLiteEngine.cpp.o.d"
   "face_detection_server"
   "face_detection_server.pdb"
 )

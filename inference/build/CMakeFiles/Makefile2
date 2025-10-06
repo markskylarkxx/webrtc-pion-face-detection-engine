@@ -54,10 +54,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference"
+CMAKE_SOURCE_DIR = /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build"
+CMAKE_BINARY_DIR = /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -85,14 +85,14 @@ clean: CMakeFiles/face_detection_server.dir/clean
 CMakeFiles/face_detection_server.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" --progress-num=1,2,3,4,5 "Built target face_detection_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target face_detection_server"
 .PHONY : CMakeFiles/face_detection_server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/face_detection_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/face_detection_server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles 0
 .PHONY : CMakeFiles/face_detection_server.dir/rule
 
 # Convenience name for target.
@@ -102,7 +102,7 @@ face_detection_server: CMakeFiles/face_detection_server.dir/rule
 # codegen rule for target.
 CMakeFiles/face_detection_server.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_detection_server.dir/build.make CMakeFiles/face_detection_server.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/kenechukwumark/My work/webrtc-pion-face-engine/inference/build/CMakeFiles" --progress-num=1,2,3,4,5 "Finished codegen for target face_detection_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kenechukwumark/Github/webrtc-pion-face-detection-engine/inference/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Finished codegen for target face_detection_server"
 .PHONY : CMakeFiles/face_detection_server.dir/codegen
 
 # clean rule for target.
